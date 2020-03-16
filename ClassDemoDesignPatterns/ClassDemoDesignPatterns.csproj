@@ -44,6 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DesignPatternWorker.cs" />
+    <Compile Include="patterns\adaptor\Adaptor.cs" />
+    <Compile Include="patterns\adaptor\Adaptor2.cs" />
+    <Compile Include="patterns\adaptor\DemoAdaptee1.cs" />
+    <Compile Include="patterns\adaptor\DemoAdaptee2.cs" />
+    <Compile Include="patterns\adaptor\IAdaptor.cs" />
+    <Compile Include="patterns\facade\Facade.cs" />
     <Compile Include="patterns\facade\SubSystem1.cs" />
     <Compile Include="patterns\facade\SubSystem2.cs" />
     <Compile Include="patterns\factory\DemoFactory.cs" />
@@ -56,6 +62,9 @@
     <Compile Include="patterns\factory\DemoFactoryUK.cs" />
     <Compile Include="patterns\factory\IDemoFactory.cs" />
     <Compile Include="patterns\factory\AbstractDemoFactory.cs" />
+    <Compile Include="patterns\proxy\IDemoProxy.cs" />
+    <Compile Include="patterns\proxy\ProxyKlasse.cs" />
+    <Compile Include="patterns\proxy\RealProxy.cs" />
     <Compile Include="patterns\singleton\NoteKatalog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,9 +72,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="patterns\adaptor\" />
-    <Folder Include="patterns\proxy\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

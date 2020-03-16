@@ -9,23 +9,23 @@ namespace ClassDemoDesignPatterns.patterns.facade
 {
     class SubSystem2
     {
-        //private NoteKatalog indkøb = new NoteKatalog();
+        private NoteKatalog indkøb = NoteKatalog.Instans;
 
-        //public SubSystem2()
-        //{
-        //    indkøb.Clear();
-        //    indkøb.Add("mælk");
-        //    indkøb.Add("salt");
-        //}
+        public SubSystem2()
+        {
+            indkøb.Clear();
+            indkøb.Add("mælk");
+            indkøb.Add("salt");
+        }
 
-        //public List<String> HentIndkøbsliste()
-        //{
-        //    return indkøb.Noter;
-        //}
+        public List<String> HentIndkøbsliste()
+        {
+            return indkøb.Noter;
+        }
 
-        //public void TilføjIndkøb(String endnuEtIndkøb)
-        //{
-        //    indkøb.Add(endnuEtIndkøb);
-        //}
+        public void TilføjIndkøb(String endnuEtIndkøb)
+        {
+            indkøb.Add(endnuEtIndkøb);
+        }
     }
 }

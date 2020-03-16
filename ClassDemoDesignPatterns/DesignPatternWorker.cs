@@ -1,5 +1,8 @@
 ﻿using System;
+using ClassDemoDesignPatterns.patterns.adaptor;
+using ClassDemoDesignPatterns.patterns.facade;
 using ClassDemoDesignPatterns.patterns.factory;
+using ClassDemoDesignPatterns.patterns.proxy;
 using ClassDemoDesignPatterns.patterns.singleton;
 
 namespace ClassDemoDesignPatterns
@@ -8,15 +11,15 @@ namespace ClassDemoDesignPatterns
     {
         public void Start()
         {
-            DemoFactoryMethod();
+            //DemoFactoryMethod();
 
             //DemoSingleton();
 
-            DemoAbstractFactory();
+            //DemoAbstractFactory();
 
-            DemoAdaptor();
+            //DemoAdaptor();
 
-            DemoFacade();
+            //DemoFacade();
 
             DemoProxy();
         }
@@ -52,25 +55,62 @@ namespace ClassDemoDesignPatterns
 
         private void DemoAbstractFactory()
         {
-            
+            // se factory
 
         }
 
         private void DemoAdaptor()
         {
-            
+            IAdaptor adap = new Adaptor();
+
+            string nystr = adap.Request("peter");
+            Console.WriteLine(nystr);
+
+            IAdaptor adap2 = new Adaptor2();
+            string nystr2 = adap2.Request("peter");
+            Console.WriteLine(nystr2);
+
 
         }
 
         private void DemoFacade()
         {
-            
+            Facade facade = new Facade();
+
+            facade.NyNote("Husk at købe ind");
+            facade.NytIndkøb("Gær");
+            Console.WriteLine($"Du skal købe { string.Join("\n", facade.HvadSkalJegKøbe()) }");
 
         }
 
         private void DemoProxy()
         {
-            
+            IDemoProxy proxy = new RealProxy();
+
+            proxy.IndsætString("Peter");
+            proxy.IndsætString("Jakob");
+            proxy.IndsætString("Vibeke");
+            proxy.IndsætString("Mohammed");
+
+            foreach (string s in proxy.Hent())
+            {
+                Console.WriteLine(s);
+            }
+
+            Console.WriteLine("    EFTER PROXY ");
+
+            // SWC
+            IDemoProxy proxy2 = new ProxyKlasse("SWC");
+
+            proxy2.IndsætString("Peter");
+            proxy2.IndsætString("Mohammed");
+
+            foreach (string s in proxy2.Hent())
+            {
+                Console.WriteLine(s);
+            }
+
+
 
         }
     }

@@ -9,20 +9,20 @@ namespace ClassDemoDesignPatterns.patterns.facade
 {
     class SubSystem1
     {
-        //private NoteKatalog noter = new NoteKatalog();
-        //public String HentNote(int ix)
-        //{
-        //    if (0 <= ix && ix < noter.Noter.Count)
-        //    {
-        //        return noter.Noter[ix];
-        //    }
+        private List<String> noter = new List<string>();
+        public String HentNote(int ix)
+        {
+            if (0 <= ix && ix < noter.Count)
+            {
+                return noter[ix];
+            }
 
-        //    throw new ArgumentException("ix not found");
-        //}
+            throw new ArgumentException("ix not found");
+        }
 
-        //public void IndsætNote(String note)
-        //{
-        //    noter.Add(note);
-        //}
+        public void IndsætNote(String note)
+        {
+            noter.Add(note);
+        }
     }
 }
