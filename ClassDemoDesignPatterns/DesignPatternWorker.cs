@@ -1,9 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.Remoting.Messaging;
+using System.Xml.Schema;
 using ClassDemoDesignPatterns.patterns.adaptor;
+using ClassDemoDesignPatterns.patterns.decorator;
 using ClassDemoDesignPatterns.patterns.facade;
 using ClassDemoDesignPatterns.patterns.factory;
+using ClassDemoDesignPatterns.patterns.observer;
 using ClassDemoDesignPatterns.patterns.proxy;
 using ClassDemoDesignPatterns.patterns.singleton;
+using ClassDemoDesignPatterns.patterns.strategy;
+using ClassDemoDesignPatterns.patterns.template;
+using IComponent = ClassDemoDesignPatterns.patterns.decorator.IComponent;
 
 namespace ClassDemoDesignPatterns
 {
@@ -21,7 +30,17 @@ namespace ClassDemoDesignPatterns
 
             //DemoFacade();
 
-            DemoProxy();
+            //DemoProxy();
+
+            //DemoDecorator();
+
+            //DemoObserver();
+
+            //DemoTemplate();
+
+            DemoStrategy();
+
+
         }
 
         private void DemoFactoryMethod()
@@ -112,6 +131,99 @@ namespace ClassDemoDesignPatterns
 
 
 
+        }
+
+
+        private void DemoDecorator()
+        {
+            // konkrete
+            IComponent component = new ConcreteComponent();
+            Console.WriteLine(component.DoSomething("peter"));
+
+            // decorerer med Hr
+            IComponent comp2 = new DecoratorKlasse(component);
+            Console.WriteLine(comp2.DoSomething("peter"));
+
+
+            // Decorerer med Levinsky
+            IComponent comp3a = new DecoratorKlasse2(component);
+            Console.WriteLine(comp3a.DoSomething("peter"));
+
+            IComponent comp3b = new DecoratorKlasse2(comp2);
+            Console.WriteLine(comp3b.DoSomething("peter"));
+
+
+        }
+
+        private void DemoObserver()
+        {
+            // I am observer
+            ObservableObject obj = new ObservableObject(3,"text");
+            obj.Text = "Peter";
+
+            obj.PropertyChanged += (s, args) =>
+            {
+                Console.WriteLine($"the changed property is {args.PropertyName}");
+                Console.WriteLine($"New values is \n{s}");
+            };
+
+            // alternativ
+            //obj.PropertyChanged += Update;
+
+            obj.Text = "Jakob";
+        }
+
+        protected void Update(object obj, PropertyChangedEventArgs args)
+        {
+            Console.WriteLine($"the changed property is {args.PropertyName}");
+            Console.WriteLine($"New values is \n{obj}");
+        }
+
+        private void DemoTemplate()
+        {
+            List<String> data = new List<string>()
+            {
+                "Peter",
+                "Jakob",
+                "Vibeke",
+                "Mohammed"
+            };
+
+            AbstractTemplateClass obj = new SubTemplate1();
+            obj.InsertTemplateMethod(data);
+            Console.WriteLine("Template ::");
+            Console.WriteLine(obj);
+
+            AbstractTemplateClass obj2 = new SubTemplate2();
+            obj2.InsertTemplateMethod(data);
+            Console.WriteLine("Template ::");
+            Console.WriteLine(obj2);
+
+        }
+        private void DemoStrategy()
+        {
+            List<String> data = new List<string>()
+            {
+                "peter",
+                "jakob",
+                "vibeke",
+                "mohammed"
+            };
+
+            // close to Pattern
+            ContextClass context1 = new ContextClass();
+            context1.InsertStrategyMethod(data, new StrategyClass());
+            Console.WriteLine("Strategy #1 ::");
+            Console.WriteLine(context1);
+
+            
+            // Close to the C# way of doing
+            ContextClassMoreCSharpLike context2 = new ContextClassMoreCSharpLike();
+            context2.StrategyMethod = (s) => { return "hej " + s.ToUpper(); };
+            context2.InsertStrategyMethod(data);
+            Console.WriteLine("Strategy #2 ::");
+            Console.WriteLine(context2);
+            
         }
     }
 }

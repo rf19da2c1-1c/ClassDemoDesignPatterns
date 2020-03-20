@@ -49,6 +49,10 @@
     <Compile Include="patterns\adaptor\DemoAdaptee1.cs" />
     <Compile Include="patterns\adaptor\DemoAdaptee2.cs" />
     <Compile Include="patterns\adaptor\IAdaptor.cs" />
+    <Compile Include="patterns\decorator\ConcreteComponent.cs" />
+    <Compile Include="patterns\decorator\DecoratorKlasse.cs" />
+    <Compile Include="patterns\decorator\DecoratorKlasse2.cs" />
+    <Compile Include="patterns\decorator\IComponent.cs" />
     <Compile Include="patterns\facade\Facade.cs" />
     <Compile Include="patterns\facade\SubSystem1.cs" />
     <Compile Include="patterns\facade\SubSystem2.cs" />
@@ -62,11 +66,20 @@
     <Compile Include="patterns\factory\DemoFactoryUK.cs" />
     <Compile Include="patterns\factory\IDemoFactory.cs" />
     <Compile Include="patterns\factory\AbstractDemoFactory.cs" />
+    <Compile Include="patterns\observer\ObservableObject.cs" />
     <Compile Include="patterns\proxy\IDemoProxy.cs" />
     <Compile Include="patterns\proxy\ProxyKlasse.cs" />
     <Compile Include="patterns\proxy\RealProxy.cs" />
     <Compile Include="patterns\singleton\NoteKatalog.cs" />
+    <Compile Include="patterns\strategy\ContextClass.cs" />
+    <Compile Include="patterns\strategy\ContextClassMoreCSharpLike.cs" />
+    <Compile Include="patterns\strategy\IStrategy.cs" />
+    <Compile Include="patterns\strategy\StrategyClass.cs" />
+    <Compile Include="patterns\template\AbstractTemplateClass.cs" />
+    <Compile Include="patterns\template\SubTemplate1.cs" />
+    <Compile Include="patterns\template\SubTemplate2.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
